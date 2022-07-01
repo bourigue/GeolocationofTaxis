@@ -1,0 +1,6 @@
+{
+    "editor.fontSize": 15,
+    "screencastMode.keyboardOverlayTimeout": 600,
+    "jupyter.maxOutputSize": 200,
+    "python.pythonPath": "C:\\Program Files\\Python39\\python.exe"
+}

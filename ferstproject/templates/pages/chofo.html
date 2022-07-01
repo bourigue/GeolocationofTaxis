@@ -1,0 +1,256 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <title>Geo django | {% block title %}{% endblock title %}</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+nav {
+    z-index:5;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#04be93;
+
+}
+
+.logo {
+    
+    font-family:Gabriola;
+    font-weight: bolder;
+    font-size: 35px;
+    color:red;
+    background-color:#839fe6;
+    text-decoration: none;
+    margin-left: 0px;
+    border-radius:40PX;
+}
+
+nav ul {
+   z-index:5;
+  background-color:#04be93;
+}
+
+nav ul li {
+    
+    font-family:Bauhaus 93;
+    display: inline-block;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 24px;
+    padding: 0 15px;
+}
+
+nav ul li a {
+    
+    text-decoration: none;
+    color: #fff;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+#toggler {
+    z-index:7;
+    width: 100px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: bolder;
+    font-size: 20px;
+    border: 1px solid #fff;
+    display: none;
+}
+
+#toggler span {
+    font-family: "Roboto", serif;
+}
+
+#navbar-form {
+    z-index:7;
+    position: relative;
+    display: inline-flex;
+    margin-right: 10px;
+}
+
+#search-form {
+    z-index:7;
+    display: inline-flex;
+    width: 370px;
+    height: 40px;
+    position: absolute;
+    right: 100%;
+    transform: scale(0,0);
+    transform-origin: center right;
+    transition: 0.4s transform linear;
+}
+
+#search-bar {
+    z-index:7;
+    width: 200px;
+    height: 40px;
+    padding: 10px;
+    color: rgb(236, 38, 38);
+    font-size: 18px;
+    margin-left:100px;
+   
+}
+
+#search-btn {
+    z-index:7;
+    width: 80px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #fff;
+    border: none;
+    outline: none;
+    background-color: #07fc07;
+}
+
+#search-form-opener {
+    z-index:7;
+    width: 60px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+#search-form-closer {
+    width: 60px;
+    z-index:7;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 25px;
+    font-weight: bolder;
+    background-color: rgb(255, 1, 1);
+    display: none;
+}
+
+#box-2:checked ~ #search-form {
+    z-index:7;
+    transform: scale(1,1);
+}
+
+#box-2:checked ~ #search-form-opener {
+    z-index:7;
+    display: none;
+}
+
+#box-2:checked ~ #search-form-closer {
+    z-index:7;
+    display: flex;
+}
+
+@media (max-width:786px) {
+    #toggler {
+        z-index:7;
+        display: flex;
+    }
+
+    nav ul {
+    
+        position: absolute;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        text-align: center;
+        transition: 0.8s ease-in-out;
+    }
+
+    nav ul li {
+        
+        display: block;
+        padding: 20px 0px;
+    }
+
+    #box-1:checked ~ ul {
+        left: 0;
+          z-index:5;
+    }
+}
+#nom{
+color=red;
+
+}
+  </style>
+  </head>
+  <body>
+
+   
+        {% block content %}
+    <nav>
+        <!-- navbar Logo -->
+        <a class="logo"><img alt="hhhh" style="width:60px;hieght:60px;border-radius:40PX;" src="{{gg.profile.url}}">Bonjour {{gg.nom}}</a>
+
+        <!-- Navbar Toggler -->
+        <input type="checkbox" id="box-1">
+        <label id="toggler" for="box-1">
+            <span>MENU <i class="fas fa-bars"></i></span>
+        </label>
+
+        <!-- Navbar Items -->
+        <ul>
+            <li><a href="#"><img style="width:40px;" src="{% static 'photo/hom.png' %}"></a></li>
+            <li><a href="#" hidden="hidden">Demandes</a></li>
+            <li><img style="width:40px;" src="{% static 'photo/notifi.png'  %}"><a href="{% url 'notificlient'%}" style="background-color:red;width:20px;border-radius:7px;padding-right:5px;"> +{{counttt}}</a></li>
+            <li><a href="#" hidden="hidden">Demandes</a></li>
+            <li><a href="{% url 'dachborde'  %}"><img style="width:40px;" src="{% static 'photo/modifier.png' %}"></a></li>
+        </ul>
+
+       
+        <div id="navbar-form">
+          
+        </div>
+    </nav>
+  <form action="" method="POST" autocomplete="off">
+             {% csrf_token %}
+         
+    <div id="bb" >  <div>
+    
+
+
+{{map|safe}}
+        {% endblock content %}
+    
+
+    <!-- Optional JavaScript -->
+    <!-- Popper.js, then Bootstrap JS -->
+</body>
+</html>

@@ -1,0 +1,209 @@
+{% load static %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+   <style>
+.img-responsive{
+width:90PX;
+height:90px;
+border-radius:50%;
+float:left;
+margin-right:80px;
+
+}
+BODY{
+   background-color:#FA736E;
+   padding-left:90px;
+}
+
+        *{
+            font-family:verdana;
+           
+           padding-left:20px;
+        }
+        .product{
+            border: 6px solid #3566a4;
+            margin-left:13px;
+            padding:10px;
+            background-color:#eff0e1;
+            width: 350px;
+            border-radius:13px;
+            float:left;
+            margin-bottom:8px;
+            
+
+
+        }
+        .product:hover{
+            background-color:#d5fba4; 
+        }
+       
+        .title2{
+            text-align: center;
+            color: #66afe9;
+            background-color: #efefef;
+            padding: 2%;
+        }
+        .container{
+             background-color:red;
+             margin:2PX ;
+
+        }
+        .accepter{
+         background-color:#05fd09;
+         width:150px;
+         height:30px;
+         font-size:20px;
+         border-radius:10px;
+        margin-left:90px;
+                }
+                .refuser{
+         background-color:#f91d0b;
+         width:100px;
+         height:30px;
+         font-size:20px;
+         border-radius:10px;
+        margin-left:130px;
+                }
+        .accepter:hover{
+          
+         border: 3px solid #05fd09;
+
+         background-color:white;
+         font-size:18px;
+         color:#05fd09;
+                     } 
+                        .refuser:hover{
+          
+         border: 3px solid #f91d0b;
+
+         background-color:white;
+         font-size:18px;
+         color:#f91d0b;
+                     } 
+                    
+        
+              #allprd{
+background-color:red;
+margin-top:2%;
+margin-left:2%;
+              }
+              html,body{
+margin:0;padding:0;
+width:100%;height:100%;
+}
+#entete{
+    margin:0;padding:0;
+width:100%;
+position:relative;
+overflow:hidden;
+background-color:transparent;
+
+}
+.imgd{
+    height:25%;
+left:0;
+width:100%;
+position:absolute;
+z-index:-1;
+object-position:center;
+}
+@media screen and (max-width: 600px){
+  .product{
+            border: 6px solid pink;
+          
+            width: 400px;
+            margin-bottom:10px;
+            
+        }
+               .refuser{
+         
+         margin-left:200px;
+               }
+                .accepter{
+         
+         margin-left:200px;
+               }
+               .text-danger{
+                 margin-left:100px;
+               }
+               .img-responsive{
+width:160PX;
+height:160px;
+border-radius:50%;
+
+
+
+}
+ 
+}
+.prof{
+  background-color:#FA736E;
+    position:relative;
+  padding-top:; 
+  animation:prof 10s linear infinite;
+  z-index:1;
+}
+@keyframes prof {
+    100%{ transform:translateX(1200PX)}
+}
+.jador{
+    height:50px;
+    width: 90px;
+}
+    </style>
+</head>
+<body>
+<script>/*
+function myFunctiona() {
+  alert("taxi accepter");
+}
+function myFunctionr() {
+  alert("taxi refuser");
+}
+</script>
+{% block con %} 
+  
+    <h1 class="prof"><img class="jador"  src="{% static 'photo/taxi.png'%}">Confirmer votre chauffeur de taxi <img class="jador"  src="{% static 'photo/taxi.png'%}"> </h1>  
+
+  <div  id="allprd"> 
+
+{% for z in pro %}
+                       <form method="POST" >
+                       {% csrf_token %} 
+                            <div class="product">
+                                        <!--!  <input type="text"  hidden="hidden" value="{{z.0}}" name="profileclient">
+                            <input type="text"  hidden="hidden" value="{{z.1}}" name="nomclient">
+                            <input type="text"  hidden="hidden" value="{{z.2}}" name="prenomclient">
+                            <input type="text"  hidden="hidden" value="{{z.3}}" name="location">
+                            <input type="text"  hidden="hidden" value="{{z.4}}" name="destination">
+                            <input type="text"  hidden="hidden" value="{{z.5}}" name="nbrplace"> 
+                            <input type="text"  hidden="hidden" value="{{z.6}}" name="idcmd">
+                            <input type="text"  hidden="hidden" value="{{z.7}}" name="idord">-->
+                            <input type="text"  hidden="hidden" value="{{z.id_chofo}}" name="id_chofo">
+                            <input type="text"  hidden="hidden" value="{{z.id_client}}" name="id_client">
+                            <input type="text"  hidden="hidden" value="{{z.id}}" name="id_orderch">
+                            
+                            <img src="../media/{{z.profilCh}}" class="img-responsive">
+                            <H3 class=""> {{z.nom}} {{z.prenom}} </H3>
+
+                            <br><br><br>
+                            <H3 class="">Tele :{{z.tele}}</H3>
+                            <h3 class=""> </h3>
+                            <input type="submit" onClick="myFunctiona()" name="Confirmer" style="margin-top: 5px;" class="accepter" value="Confirmer">
+                            <input hidden="hidden"  onClick="myFunctionr()"  type="submit" name="refuser" style="margin-top: 5px;" class="refuser" value="Refuser">
+                </div>
+                 </form>
+                       
+{% endfor %}
+ <div>
+  
+                       
+
+{% endblock con %} 
+</body>
+</html>
+

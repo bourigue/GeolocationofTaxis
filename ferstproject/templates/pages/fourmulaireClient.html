@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/js" href="{% static 'js/JSfourmulaireClient' %}"> 
+
+   <link rel="stylesheet" type="text/css" href="{% static 'css/CssFoutmulaireClient.css' %}"> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSCIPTION </title>
+	<style>
+	#but2{
+  border-radius:45px;
+  padding:12px;
+background-color:#f0f0f0;
+border: 2px solid orange;
+width:30%;
+}
+#custom-button2 {
+	
+  border: 2px solid orange;
+  padding: 10px;
+  color: white;
+  background-color:orange;
+  border: 1px solid #000;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+#custom-button2:hover {
+  background-color:white;
+  color:orange;
+}
+
+#sub{
+	border-radius:20px;
+	background-color:orange;
+}
+	</style>
+</head>
+<body>
+{% block content %}
+    <div class="container">
+	<div class="compte">
+		<h2>Créer mon compte</h2>
+	</div>
+	<form enctype="multipart/form-data" method="POST" id="form" class="form" >
+	{% csrf_token %}
+	
+	                <input type="button" id="custom-button2" value="Choisir votre profile"/>
+                    <span id="custom-text2">Aucun photo choisir</span>
+                    <input type="file" id="real-file2"  hidden="hidden" name="profile" >
+		<br><br>
+		<div class="form-control">
+			<label for="username">NOM </label>
+			<input name="nom" type="text" placeholder="entrer votre nom" id="nom" />
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+        <div class="form-control">
+			<label for="username">Prenom</label>
+			<input name="prenom" type="text" placeholder="entrer votre prenom " id="prenom"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<div class="form-control">
+			<label for="username">Email</label>
+			<input name="email" type="email" placeholder="nom@gmail.com" id="email" />
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<div class="form-control">
+			<label for="username">Password</label>
+			<input name="password" type="password" placeholder="entrer votre mot de passe " id="password"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+	
+        
+		<input id="sub" type="submit" value="envoyer">
+	</form>
+</div>
+
+
+<!-- SOCIAL PANEL HTML -->
+	
+{% endblock content %}
+
+<script>
+
+
+const realFileBtn2 = document.getElementById("real-file2");
+const customBtn2 = document.getElementById("custom-button2");
+const customTxt2 = document.getElementById("custom-text2");
+
+customBtn2.addEventListener("click", function () {
+  realFileBtn2.click();
+});
+
+realFileBtn2.addEventListener("change", function () {
+  if (realFileBtn2.value) {
+    customTxt2.innerHTML = realFileBtn2.value.match(
+      /[\/\\]([\w\d\s\.\-\(\)]+)$/
+    )[1];
+  } else {
+    customTxt2.innerHTML = "No file chosen, yet.";
+  }
+});
+</script>
+
+</body>
+</html>

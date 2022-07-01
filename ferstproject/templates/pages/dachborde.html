@@ -1,0 +1,95 @@
+{% load static %}
+<html>
+<head>
+<title>
+  admin-site-ecommerce
+</title>
+</head>
+<style>
+table{
+caption-side:bottom;
+width:100%;
+collspan:
+border-radius:20px;
+}
+
+th,tr{
+border:none;
+padding:10px;
+}
+tr{
+font-family:Eras Demi ITC;
+}
+th{
+  font-size:25px;  
+border:none;
+background-color:#27eda8;
+padding:10px;
+font-family:Showcard Gothic;
+}
+.imagetabl{
+width:130px;
+height:100px;
+border-radius:5px;
+
+
+}
+#mos:hover{ background-color:aqua;}
+table{
+  border-collapse:collapse;
+}
+#nomch{
+   margin-left:100px;
+   margin-top:-60px;
+  font-size:40px;
+}
+td{
+  font-family:;
+  font-size:40px;
+  
+  
+}
+#btncd{
+height:60px;
+width:180px;
+background-color:red;
+font-size:30px;
+border-radius:12px;
+}
+#btncd:hover{
+  background-color:white;
+  color:red;
+  border:2px solid red;
+}
+</style>
+<body>
+{% block coun%}
+<p><a href=""> <img src="{{chofo.profile.url}}"  width="100px" height="100px"></a></p><div id="nomch">{{chofo.nom}} {{chofo.prenom}}</div>
+<table border="1px solid black" >
+<tr>
+<th>Photo</th><th>Nom</th><th>Prenom</th><th>Location</th><th>Destination</th><th>Nbr de place</th><th>Delivrer</th>
+</tr>
+
+{% for z in obj %}
+<form method="POST" action="" >
+{% csrf_token %} 
+<input type="text"  hidden="hidden" value="{{z.6}}" name="idord">
+<input type="text"  hidden="hidden" value="{{z.7}}" name="idch">
+<input type="text" hidden="hidden"  value="{{z.8}}" name="idcmd">
+  
+<tr id="mos">
+<td><img style="width:100px;hieght:100px;border-radius:10PX;" src="../media/{{z.0}}"> </td>
+<td ><center>{{z.1}}</center></td>
+<td ><center>{{z.2}}</center></td>
+<td ><center>{{z.3}}</center></td>
+<td ><center>{{z.4}}</center></td>
+<td ><center>{{z.5}}</center></td>
+<td><input type="submit" id="btncd" name="bbb" value="Delivrer" ></td>
+
+<tr>
+</form>
+{% endfor %}
+</table>
+{% endblock coun %}
+</body>
+</html>

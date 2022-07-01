@@ -1,0 +1,149 @@
+{% load static %}
+<html>
+{% block con %}
+<style>
+
+.navigation{
+  padding-top:30px;
+  padding-bottom:30px;
+  position:absolute;
+  top:0;
+  width:100%;
+  z-index:1;
+}
+
+.navbar-right{
+  float:right;
+  padding-right:20%;
+}
+
+.navbar-right a{
+  border-radius:40px;
+  background-color:red;
+  text-decoration:none;
+  padding:10px;
+  color:#F7E045;
+  font-family:Arial;
+  font-weight:900;
+  font-size:40px;
+}
+.navbar-right a:hover{
+border-radius:40px;
+  background-color:#F7E045;
+ color:red;
+}
+
+.navbar-right a:hover{
+  text-decoration:none;
+}
+.navbar-logo{
+  padding-left:3%;
+  font-family:Arial;
+  font-size:50px;
+  font-weight:bold;
+  text-decoration:none;
+  color:RED; 
+}
+
+.video-container {
+z-index: -100;
+width:100%;
+height:100%;
+overflow:hidden;
+position:absolute;
+top:0;
+left:0;
+}
+
+#video-bg{
+  width:100%;
+ 
+
+}
+
+.portfolio-section{
+  margin-top:50%;
+}
+.tagline-left{
+  float:left;
+  width:50%;
+  text-align:center;
+}
+
+.tagline-right{
+  float:right;
+  width:50%;
+  text-align:center;
+}
+
+.tagline-video{
+  width:75%;
+}
+
+.tagline-right-text{
+ position:absolute;
+ margin-top:9%;
+ text-align:center;
+ margin-left:17%;
+font-family:Arial;
+ color:#fff;
+  width:290px;
+  font-size:40px;
+}
+
+.tagline-left-text{
+ position:absolute;
+ margin-top:9%;
+ text-align:center;
+ margin-left:11%;
+font-family:Arial;
+ color:#fff;
+  width:375px;
+  font-size:40px;
+}
+</style>
+<header>
+<body>
+  <div class="header">
+    <nav class="navigation">
+      <a href="#" class="navbar-logo">TAXI-RH</a>
+      <div class="navbar-right">
+        <a href="{% url 'interface1'   %}">Accueil</a>
+        <a href="{% url 'interfaceClient'   %}">Client</a>
+        <a href="{% url 'InterfaceChauffeur'%}">Chauffeur</a>
+        <a href="#">Idée</a>
+
+      </div>
+    </nav>
+
+    <div class="video-container">
+      <video autoplay loop muted id="video-bg">
+
+        <source src="{% static 'photo/toooo.mp4' %}" type="video/mp4">
+
+      </video>
+    </div>
+  </div>
+</header>
+<div class="portfolio-section">
+  <div class="tagline-left">
+    <div class="tagline-left-text">Serving the waters that serve our state.</div>
+    <video autoplay muted loop class="tagline-video">
+      <source src="http://www.bigcom.com/assets/2014/10/asmc_bg2.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="tagline-right">
+    <div class="tagline-right-text">The future is for workers</div>
+    <video autoplay muted loop class="tagline-video">
+      <source src="http://www.bigcom.com/assets/2014/08/GoBuildAlabama.mp4" type="video/mp4">
+    </video>
+  </div>
+</div>
+<body>
+{% endblock con%}
+</html>
+
+    
+ 
+
+
