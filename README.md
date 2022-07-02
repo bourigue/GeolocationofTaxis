@@ -1,5 +1,10 @@
 # GeolocationofTaxis
 
+<p>This web application makes it possible to develop and improve the transport offer and facilitates access to the
+means of urban transport in a city having a communication interface between passengers
+ and taxi drivers, as well, to improve job opportunities for drivers and make
+deliveries to customers</p>
+
 ## [Watch it on YouTube](https://www.youtube.com/watch?v=JDS2Xbl2c54&ab_channel=rachidbourigue)
 
 
